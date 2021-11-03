@@ -4,8 +4,7 @@ const deleteTodos = (todoId) => {
             method: 'DELETE'
         })
         .then(res => res.json())
-        .then(() => location.reload());
-    }catch(err) {
+    } catch(err) {
         console.log(err);
     }
 }

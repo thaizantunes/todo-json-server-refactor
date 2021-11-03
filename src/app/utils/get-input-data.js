@@ -1,4 +1,5 @@
 const inputName = document.querySelector('#todoValue');
+import { v4 as uuidv4 } from 'uuid';
 
 const getInputData = () => {
     const date = new Date().toLocaleDateString();
@@ -6,7 +7,8 @@ const getInputData = () => {
     const todo = {
         name: inputName.value,
         date: date,
-        completed: false
+        completed: false,
+        id: uuidv4()
     }
     return todo;
 }

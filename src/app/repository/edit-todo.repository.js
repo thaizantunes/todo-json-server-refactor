@@ -1,4 +1,4 @@
-const editTodos = (todoId, teste) => {
+const editTodos = (todoId, isCompleted) => {
     try{
         return fetch(`http://localhost:3000/todos/${todoId}`, {
             method: 'PATCH',
@@ -6,7 +6,7 @@ const editTodos = (todoId, teste) => {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({completed: teste})
+            body: JSON.stringify({completed: isCompleted})
         })
     }catch(err) {
         console.log(err);

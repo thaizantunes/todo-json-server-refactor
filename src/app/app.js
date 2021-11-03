@@ -4,9 +4,11 @@ import postTodo from "./repository/post-todo.repository";
 import deleteTodos from "./repository/delete-todo.repository";
 import delegate from "./utils/delegate";
 import getInputData from "./utils/get-input-data";
+import fillTodo from "./utils/fill-todo-div";
 
 const form = document.querySelector('#addTodo');
 const ulTodo = document.querySelectorAll('ul');
+const liTodo = document.querySelectorAll('li');
 const inputName = document.querySelector('#todoValue');
 
 const run = () => {
@@ -17,6 +19,7 @@ const run = () => {
         if(inputName.value === '') return;
         const todoData = getInputData();
         postTodo(todoData);
+        fillTodo([todoData]);
         form.reset();
     });
     
@@ -37,6 +40,7 @@ const run = () => {
         delegate(document, "click", ".deleteTodo", function(e) {
             let todoId = this.parentElement.dataset.id;
             deleteTodos(todoId);
+            this.parentNode.remove(this);
         })
     );
 }

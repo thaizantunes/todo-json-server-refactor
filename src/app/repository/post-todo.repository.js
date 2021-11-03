@@ -10,7 +10,6 @@ async function postTodo(todo){
             body: JSON.stringify(todo)
         })
           .then(res => res.json())
-          .then(() => location.reload());
     } catch(err) {
         console.log(err);
     }

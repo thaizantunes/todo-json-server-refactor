@@ -1,4 +1,3 @@
-
 const delegate = (el, evt, sel, handler) => {
     el.addEventListener(evt, function(event) {
         var t = event.target;
